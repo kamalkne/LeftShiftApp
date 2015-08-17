@@ -1,0 +1,143 @@
+<div ng-controller="weatherMapController">
+	
+	<div class="container">
+		<div class="row">
+			<center>
+				<div class="input-city input-group">
+					<span class="input-group-addon left-text">City</span>
+					<input type="text" class="form-control" ng-model="city" aria-describedby="basic-addon1"/>
+					<span class="input-group-addon" ><span class="glyphicon glyphicon-plus" aria-hidden="true" ng-click="addCityToArray()" ></span></span>
+				</div>
+				<div class="selected-city">
+					<span ng-repeat="city in cityArray">
+						<button class="btn btn-default" type="button" ng-click="removeCity(city)">
+							{{ city }} <span class="badge"><span class="glyphicon glyphicon-remove" aria-hidden="true" ></span></span>
+						</button>
+					</span>
+				</div>
+				<div class="get-report">
+					<input type="button" class="btn btn-primary" ng-click="cityEntered()" value="Get Report"></input>
+				</div>
+			</center>
+		</div>
+	</div>
+	
+	<div ng-repeat="sin in data">
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="custom-thumbnail">
+					<center>
+						<div style="font-size: 23px;">
+							<b>{{ sin.data.city.name }}</b><span> (</span>{{ sin.data.city.country }}<span>)</span>
+						</div>
+						<div style="font-size: 11px;">
+							<span>Geo Coords</span>
+						</div>
+						<div style="font-size: 10px;">
+							<span>[</span>{{ sin.data.city.coord.lon }}<span>, </span>{{ sin.data.city.coord.lat }}<span>]</span>
+						</div>
+					</center>
+				</div>
+			</div>
+			<div class="col-xs-9">
+				<div ng-repeat="collection in sin.data.list">
+					<div class="row single-instance">
+						<div class="col-xs-12">
+							<div class="col-xs-4">
+								<div class="col-xs-8">
+									<!-- <div class="date-container">
+										<center>
+											<div class="date-container-date">
+												{{ collection.dt_txt | customDate: 'dd'}}
+											</div>
+											<div class="date-container-month">
+												{{ collection.dt_txt | customDate: 'MMM'}}<span> {{ collection.dt_txt | customDate: 'YYYY'}}</span>
+											</div>
+										</center>
+									</div> -->
+								</div>
+								<div class="col-xs-4">
+									<div class="timeline">
+										<b>
+											<center>{{ collection.dt_txt | customDate: 'tt'}}</center>
+										</b>
+									</div>
+									<div class="vertical-rule">
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-8">
+								<div class="date">
+									{{ collection.dt_txt | customDate: 'dd'}} {{ collection.dt_txt | customDate: 'MMM'}}, {{ collection.dt_txt | customDate: 'YYYY'}}
+								</div>
+								<div class="weather-info">
+									<div class="row temperature-info">
+										<center>{{ collection.main.temp | convertIntoCelcius }}&#8451;</center>
+									</div>
+									<div class="col-xs-4" title="Humidity">
+										<center><img src="dist/images/humidity.png" height="20px" width="20px"/></center>
+										<div>
+											{{ collection.main.humidity }}
+										</div>
+									</div>
+									<div class="col-xs-4" ng-if="collection.weather[0].main == 'Rain'">
+										<div title="Light Rain" ng-if="collection.weather[0].description == 'light rain'">
+											<center><img src="dist/images/light_rain.png" height="30px" width="30px"/></center>
+										</div>
+										<div title="Heavy Rain" ng-if="collection.weather[0].description == 'heavy rain'">
+											<center><img src="dist/images/heavy_rain.png" height="30px" width="30px"/></center>
+										</div>
+										<div title="Moderate Rain" ng-if="collection.weather[0].description == 'moderate rain'">
+											<center><img src="dist/images/moderate_rain.png" height="30px" width="30px"/></center>
+										</div>
+									</div>
+									<div class="col-xs-4" ng-if="collection.weather[0].main == 'Clouds'">
+										<div title="Few Clouds" ng-if="collection.weather[0].description == 'few clouds'">
+											<center><img src="dist/images/few_clouds.png" height="30px" width="30px"/></center>
+										</div>
+										<div title="Overcast Clouds" ng-if="collection.weather[0].description == 'overcast clouds'">
+											<center><img src="dist/images/overcast_clouds.png" height="30px" width="30px"/></center>
+										</div>
+										<div title="Scattered Clouds" ng-if="collection.weather[0].description == 'scattered clouds'">
+											<center><img src="dist/images/scattered_clouds.png" height="30px" width="30px"/></center>
+										</div>
+										<div title="Broken Clouds" ng-if="collection.weather[0].description == 'broken clouds'">
+											<center><img src="dist/images/broken_clouds.png" height="30px" width="30px"/></center>
+										</div>
+									</div>
+									<div class="col-xs-4" ng-if="collection.weather[0].main == 'Clear'">
+										<div title="Sky is Clear" ng-if="collection.weather[0].description == 'sky is clear'">
+											<center><img src="dist/images/sun.png" height="30px" width="30px"/></center>
+										</div>
+									</div>
+									<div class="col-xs-4" title="Wind Speed">
+										<center><img src="dist/images/wind_speed.png" height="20px" width="20px"/></center>
+										<div>
+											{{ collection.wind.speed }}
+										</div>
+									</div>
+								</div>
+								<!-- <div>
+									temp_min: {{ collection.main.temp_min }}
+								</div>
+								<div>
+									temp_max: {{ collection.main.temp_max }}
+								</div>
+								<div>
+									pressure: {{ collection.main.pressure }}
+								</div>
+								<div>
+									sea_level: {{ collection.main.sea_level }}
+								</div>
+								<div>
+									grnd_level: {{ collection.main.grnd_level }}
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

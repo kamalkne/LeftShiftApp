@@ -1,0 +1,50 @@
+Dear , 
+
+Thank you for your interest in joining Leftshift. 
+
+We love to challenge our candidates, so we kindly ask that you complete 
+the attached assignment as part of your application. You can take as much 
+time as you like to complete the assignment. Please get back to us when you're done. 
+
+The focus of the solution has to be on the quality of code, rather than the time required to complete it. 
+
+PROBLEM STATEMENT 
+You need to build a small app to fetch the weather forecast of multiple cities 
+
+PRE-REQUISITES 
+1. Head over to http://openweathermap.org
+2. Register an account on the website 
+3. After registration, go to your personal page 
+4. Copy the API key that is generated for you 
+
+INSTRUCTIONS FOR IOS 
+1. Please ensure it's a native app which uses Objective-C 
+
+INSTRUCTIONS FOR ANDROID 
+1. Please ensure it's a native app which uses Java. 
+
+INSTRUCTIONS FOR THE WEB 
+1. Please ensure that you use Backbone or Angular or Knockout or Spine or Ember 
+2. The application should not reload itself to fetch content. 
+
+
+STEP I 
+1. The app should accept multiple city names from the user 
+2. Based on the city names entered, the app should show the the weather forecast for the 14 days for each city 
+
+STEP II (Optional) 
+1. Find the current city using GPS 
+2. Display the weather forecast for the current city for 14 days 
+
+You can use the following API call to fetch the weather forecast of a given city 
+Sample 1. http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&cnt=14&APPID=xxxxx 
+Sample 2. http://api.openweathermap.org/data/2.5/forecast/daily?q=Moscow&cnt=14&APPID=xxxxx 
+
+More details for the API can be found here - http://openweathermap.org/API#forecast
+
+
+Finally, you will get bonus points for pushing the completed source code to github.com and sending us a link to that. 
+
+Should you have any further questions, please do not hesitate to contact us. You can reach us at +91-7875-670-066. 
+
+Sincerely, 
