@@ -1,5 +1,5 @@
-weatherMapModule.controller('weatherMapController', ['$scope', '$http', '$parse', 'weatherMapFactory', '$rootScope', 
-	function ($scope, $http, $parse, weatherMapFactory, $rootScope) {
+weatherMapModule.controller('weatherMapController', ['$scope', '$parse', 'weatherMapFactory', '$rootScope', 
+	function ($scope, $parse, weatherMapFactory, $rootScope) {
 
 		$rootScope.showLoader = false;
 		$scope.cityArray = [];
@@ -46,3 +46,4 @@ weatherMapModule.controller('weatherMapController', ['$scope', '$http', '$parse'
 		};
 	}
 ]);
+
